@@ -30,6 +30,8 @@ function validateCred(arr) {
     for (let i = arr.lengt - 1; i < arr.length; i --) {
         if (arr[i] !== arr[arr.length-1]) {
             (arr[i] *2) <= 9 ? sum += arr[i] * 2 : sum += (arr[i] * 2) - 9;
+        } else {
+            sum += arr[i];
         }
     }
 }
