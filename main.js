@@ -27,17 +27,41 @@ const batch = [valid1, valid2, valid3, valid4, valid5, invalid1, invalid2, inval
 
 function validateCred(arr) {
     let sum = 0;
-    for (let i = arr.lengt - 1; i < arr.length; i --) {
-        if (arr[i] !== arr[arr.length-1]) {
-            (arr[i] *2) <= 9 ? sum += arr[i] * 2 : sum += (arr[i] * 2) - 9;
-        } else {
+    let arrNature = "";
+    arr.length % 2 == 0 ? arrNature = 'even' : arrNature = 'odd';
+    // console.log(arrNature);
+
+    for (let i = arr.length - 1; i >= 0; i --) {
+        // console.log('looping over index ' + i)
+        if (i === arr.length - 1) {
+            sum += arr[i];
+        } else if (arrNature === 'even' && i % 2 === 0) {
+            arr[i] * 2 <= 9 ? sum += arr[i] * 2 : sum += arr[i] * 2 - 9;
+        } else if (arrNature === 'even' && i % 2 !== 0) {
+            sum += arr[i];
+        } else if (arrNature === 'odd' && i % 2 !== 0) {
+            arr[i] * 2 <= 9 ? sum += arr[i] * 2 : sum += arr[i] * 2 - 9;
+        } else if (arrNature === 'odd' && i % 2 === 0) {
             sum += arr[i];
         }
+        // console.log('temporary sum is ' + sum);
     }
+    if (sum % 10 === 0) {
+        return 'Valid'
+    } else return 'Invalid';
 }
 
+console.log(validateCred(valid1));
+console.log(validateCred(valid2));
+console.log(validateCred(valid3));
+console.log(validateCred(valid4));
+console.log(validateCred(valid5));
+console.log(validateCred(invalid1));
+console.log(validateCred(invalid2));
+console.log(validateCred(invalid3));
+console.log(validateCred(invalid4));
+console.log(validateCred(invalid5));
 
-
-
+// CHECK THE FUNCTION, something's wrong
 
 
