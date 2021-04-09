@@ -29,10 +29,8 @@ function validateCred(arr) {
     let sum = 0;
     let arrNature = "";
     arr.length % 2 == 0 ? arrNature = 'even' : arrNature = 'odd';
-    // console.log(arrNature);
 
     for (let i = arr.length - 1; i >= 0; i --) {
-        // console.log('looping over index ' + i)
         if (i === arr.length - 1) {
             sum += arr[i];
         } else if (arrNature === 'even' && i % 2 === 0) {
@@ -44,24 +42,32 @@ function validateCred(arr) {
         } else if (arrNature === 'odd' && i % 2 === 0) {
             sum += arr[i];
         }
-        // console.log('temporary sum is ' + sum);
     }
     if (sum % 10 === 0) {
         return 'Valid'
     } else return 'Invalid';
 }
 
-console.log(validateCred(valid1));
-console.log(validateCred(valid2));
-console.log(validateCred(valid3));
-console.log(validateCred(valid4));
-console.log(validateCred(valid5));
-console.log(validateCred(invalid1));
-console.log(validateCred(invalid2));
-console.log(validateCred(invalid3));
-console.log(validateCred(invalid4));
-console.log(validateCred(invalid5));
+function findInvalidCards(arr) {
+    let validCards = [];
+    let invalidCards = [];
 
-// CHECK THE FUNCTION, something's wrong
+    arr.forEach(item => {
+        let result = validateCred(item);
+        result === 'Valid' ? validCards.push(item) : invalidCards.push(item);
+    });
+    console.log(`${validCards.length} cards are valid \n ${invalidCards.length} cards are invalid`);
+}
 
+// console.log(validateCred(valid1));
+// console.log(validateCred(valid2));
+// console.log(validateCred(valid3));
+// console.log(validateCred(valid4));
+// console.log(validateCred(valid5));
+// console.log(validateCred(invalid1));
+// console.log(validateCred(invalid2));
+// console.log(validateCred(invalid3));
+// console.log(validateCred(invalid4));
+// console.log(validateCred(invalid5));
 
+findInvalidCards(batch);
