@@ -58,16 +58,3 @@ function findInvalidCards(arr) {
     });
     console.log(`${validCards.length} cards are valid \n ${invalidCards.length} cards are invalid`);
 }
-
-// console.log(validateCred(valid1));
-// console.log(validateCred(valid2));
-// console.log(validateCred(valid3));
-// console.log(validateCred(valid4));
-// console.log(validateCred(valid5));
-// console.log(validateCred(invalid1));
-// console.log(validateCred(invalid2));
-// console.log(validateCred(invalid3));
-// console.log(validateCred(invalid4));
-// console.log(validateCred(invalid5));
-
-findInvalidCards(batch);
