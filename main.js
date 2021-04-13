@@ -25,6 +25,9 @@ const batch = [valid1, valid2, valid3, valid4, valid5, invalid1, invalid2, inval
 // An array of valid cards
 const allValidCards = [valid1, valid2, valid3, valid4, valid5];
 
+// An array of invalid cards
+const allInvalidCards = [invalid1, invalid2, invalid3, invalid4, invalid5];
+
 // Add your functions below:
 
 function validateCred(arr) {
@@ -58,7 +61,8 @@ function findInvalidCards(arr) {
         let result = validateCred(item);
         result === 'Valid' ? validCards.push(item) : invalidCards.push(item);
     });
-    console.log(`${validCards.length} cards are valid \n ${invalidCards.length} cards are invalid`);
+    // console.log(`${validCards.length} cards are valid \n ${invalidCards.length} cards are invalid`);
+    return invalidCards;
 }
 
-
+console.log(findInvalidCards(allInvalidCards));
